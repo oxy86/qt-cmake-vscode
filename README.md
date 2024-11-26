@@ -12,28 +12,33 @@ Development minimum requirements
 --------------------------------
 
 * Windows 10 / macOS 12 (macOS 10.15 is sufficient if deploying the app is not required)
-* Qt 6.x (L)GPL for desktop development
-* CMake 3.22 or above
+* Qt 6.x (L)GPL for desktop development. Download installer from [here](https://www.qt.io/download-open-source).
+* CMake 3.27 or above. The CMake tool can be donwloaded from [here](https://cmake.org/download/)
+  Note: To install CMake on MacOS, see [here](https://gist.github.com/oxy86/b1537ed8936e503d9c55cf02e7da332b).
 * VSCode with CMake Tools (Microsoft) extension installed
 
-Setting up
-----------
+Checks:
+
+* See if CMake is already installed on your system. Open a Terminal window and enter the following command:
+
+cmake --version
 
 If you are on Windows, before following the steps below, add Qt's MinGW bin folder to the system's PATH environment variable. For Qt 6.4.0, the MinGW bin folder is located at:
 
 `C:\Qt\Tools\mingw1120_64\bin`
 
-Windows and MacOS: The CMake tool can be obtained [here](https://cmake.org/download/). Copy the link for the package version that you want to install from there.
-To install CMake on MacOS, see [here](https://gist.github.com/oxy86/b1537ed8936e503d9c55cf02e7da332b).
+
+Setting up
+----------
 
 Set up the project in VSCode:
 
 1. Open VSCode and select 'Open Folder...' from the 'File' menu.
 2. Select the root folder of this repo.
-3. Respond with 'Yes' to configuring the project with CMake.
-4. Command Pallette -> Preferences (Open user settings) -> search for cmake 
-5. Check the paths in `cmake/Qt.cmake` and change them to match your Qt's installation folder.
-6. Click on CMake's Kit icon in the status bar (the one that looks like a spanner) to select the CMake compiler:
+3. Command Pallette -> Qt: Register Qt installation. Select the Qt root directory, i.e. /Users/dimitris/Qt
+4. Respond with 'Yes' to configuring the project with CMake.
+5. Check the paths in `cmake/Qt.cmake` and change them to match your Qt's installation folder. Open Command Pallette -> Preferences (Open user settings) -> search for CMake Tools -> scroll to Cmake: Configure Environment. Add env variable: CMAKE_PREFIX_PATH with value the full path of cmake libraries inside your Qt6 installation, i.e.: /Users/dimitris/Qt/6.6.3/macos/lib/cmake/Qt6/
+7. Click on CMake's Kit icon in the status bar (the one that looks like a spanner) to select the CMake compiler:
     * Clang on macOS
     * MinGW on Windows
 
