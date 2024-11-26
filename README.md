@@ -23,13 +23,17 @@ If you are on Windows, before following the steps below, add Qt's MinGW bin fold
 
 `C:\Qt\Tools\mingw1120_64\bin`
 
+Windows and MacOS: The CMake tool can be obtained [here](https://cmake.org/download/). Copy the link for the package version that you want to install from there.
+To install CMake on MacOS, see [here](https://gist.github.com/oxy86/b1537ed8936e503d9c55cf02e7da332b).
+
 Set up the project in VSCode:
 
 1. Open VSCode and select 'Open Folder...' from the 'File' menu.
 2. Select the root folder of this repo.
 3. Respond with 'Yes' to configuring the project with CMake.
-4. Check the paths in `cmake/Qt.cmake` and change them to match your Qt's installation folder.
-5. Click on CMake's Kit icon in the status bar (the one that looks like a spanner) to select the CMake compiler:
+4. Command Pallette -> Preferences (Open user settings) -> search for cmake 
+5. Check the paths in `cmake/Qt.cmake` and change them to match your Qt's installation folder.
+6. Click on CMake's Kit icon in the status bar (the one that looks like a spanner) to select the CMake compiler:
     * Clang on macOS
     * MinGW on Windows
 
